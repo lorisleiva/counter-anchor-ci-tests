@@ -9,6 +9,7 @@ on:
 env:
   NODE_VERSION: 18
   SOLANA_VERSION: 1.18.12
+  ANCHOR_VERSION: 0.30.0
   CARGO_CACHE: |
     ~/.cargo/bin/
     ~/.cargo/registry/index/
@@ -28,6 +29,7 @@ jobs:
         with:
           node: ${{ env.NODE_VERSION }}
           solana: ${{ env.SOLANA_VERSION }}
+          anchor: ${{ env.ANCHOR_VERSION }}
       - name: Cache cargo dependencies
         uses: actions/cache@v4
         with:
@@ -59,6 +61,7 @@ jobs:
         with:
           node: ${{ env.NODE_VERSION }}
           solana: ${{ env.SOLANA_VERSION }}
+          anchor: ${{ env.ANCHOR_VERSION }}
       - name: Cache test cargo dependencies
         uses: actions/cache@v4
         with:
@@ -83,6 +86,7 @@ jobs:
         with:
           node: ${{ env.NODE_VERSION }}
           solana: ${{ env.SOLANA_VERSION }}
+          anchor: ${{ env.ANCHOR_VERSION }}
       - name: Cache cargo dependencies
         uses: actions/cache@v4
         with:
@@ -152,7 +156,6 @@ jobs:
         uses: ./.github/actions/setup
         with:
           node: ${{ env.NODE_VERSION }}
-          solana: ${{ env.SOLANA_VERSION }}
       - name: Lint JS client
         run: pnpm clients:js:lint
 
@@ -193,6 +196,5 @@ jobs:
         uses: ./.github/actions/setup
         with:
           node: ${{ env.NODE_VERSION }}
-          solana: ${{ env.SOLANA_VERSION }}
       - name: Lint Rust client
         run: pnpm clients:rust:lint
