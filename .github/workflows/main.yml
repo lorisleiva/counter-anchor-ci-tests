@@ -30,7 +30,7 @@ jobs:
           node: ${{ env.NODE_VERSION }}
           solana: ${{ env.SOLANA_VERSION }}
           anchor: ${{ env.ANCHOR_VERSION }}
-      - name: Cache cargo dependencies
+      - name: Cache cargo dependenciesz
         uses: actions/cache@v4
         with:
           path: ${{ env.CARGO_CACHE }}
